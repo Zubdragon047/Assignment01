@@ -31,6 +31,8 @@ public class Player : MonoBehaviour
     // Physics update
     private void FixedUpdate()
     {
+        rbComponent.velocity = new Vector3(horizInput, rbComponent.velocity.y, 0);
+
         if (Physics.OverlapSphere(groundCheckTransform.position, 0.1f, playerMask).Length == 0)
         {
             return;
@@ -38,10 +40,16 @@ public class Player : MonoBehaviour
 
         if (jumpKeyPressed)
         {
-            rbComponent.AddForce(Vector3.up * 5, ForceMode.VelocityChange);
+            rbComponent.AddForce(Vector3.up * 7, ForceMode.VelocityChange);
             jumpKeyPressed = false;
         }
+    }
 
-        rbComponent.velocity = new Vector3(horizInput, rbComponent.velocity.y, 0);
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == 7)
+        {
+            Destroy(other.gameObject);
+        }
     }
 }
