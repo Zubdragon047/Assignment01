@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy2 : MonoBehaviour
 {
     private Rigidbody rbComponent;
 
@@ -17,12 +17,12 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rbComponent.position.x < 12 && rbComponent.velocity.x <= 0)
+        if (rbComponent.position.x < 22 && rbComponent.velocity.x <= 0)
         {
             rbComponent.AddForce(Vector3.right * 0.5f, ForceMode.VelocityChange);
         }
 
-        if (rbComponent.position.x > 16 && rbComponent.velocity.x >= 0)
+        if (rbComponent.position.x > 25 && rbComponent.velocity.x >= 0)
         {
             rbComponent.AddForce(Vector3.left * 0.5f, ForceMode.VelocityChange);
         }
