@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class Player : MonoBehaviour
 
     [SerializeField] private Transform groundCheckTransform = null;
     [SerializeField] private LayerMask playerMask;
+    [SerializeField] private int playerScore;
+    
 
     // Start is called before the first frame update
     private void Start()
@@ -50,6 +53,7 @@ public class Player : MonoBehaviour
         if (other.gameObject.layer == 7)
         {
             Destroy(other.gameObject);
+            playerScore++;
         }
     }
 }
