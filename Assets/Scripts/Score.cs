@@ -5,7 +5,9 @@ using TMPro;
 
 public class Score : MonoBehaviour
 {
+    public Player player;
     [SerializeField] private GameObject scoreTextMesh;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +17,7 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreTextMesh.GetComponent<TextMeshProUGUI>().text = "Score:";
+        player = FindObjectOfType<Player>();
+        scoreTextMesh.GetComponent<TextMeshProUGUI>().text = "Score: " + player.playerScore;
     }
 }

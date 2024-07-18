@@ -8,11 +8,10 @@ public class Player : MonoBehaviour
     private bool jumpKeyPressed = false;
     private float horizInput;
     private Rigidbody rbComponent;
+    public int playerScore;
 
     [SerializeField] private Transform groundCheckTransform = null;
     [SerializeField] private LayerMask playerMask;
-    [SerializeField] private int playerScore;
-    
 
     // Start is called before the first frame update
     private void Start()
@@ -54,6 +53,12 @@ public class Player : MonoBehaviour
         {
             Destroy(other.gameObject);
             playerScore++;
+        }
+
+        if (other.gameObject.layer == 8)
+        {
+            Destroy(other.gameObject);
+            playerScore--;
         }
     }
 }
